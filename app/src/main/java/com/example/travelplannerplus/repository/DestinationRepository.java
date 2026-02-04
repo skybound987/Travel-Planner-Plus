@@ -2,9 +2,11 @@ package com.example.travelplannerplus.repository;
 
 import android.app.Application;
 
+import com.example.travelplannerplus.dao.DestinationActivityInterface;
 import com.example.travelplannerplus.dao.DestinationInterface;
 import com.example.travelplannerplus.database.DestinationDatabase;
 import com.example.travelplannerplus.entities.Destination;
+import com.example.travelplannerplus.entities.DestinationActivity;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

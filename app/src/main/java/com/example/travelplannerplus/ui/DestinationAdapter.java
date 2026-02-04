@@ -1,4 +1,4 @@
-package com.example.travelplannerplus.activities;
+package com.example.travelplannerplus.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +33,7 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     @NonNull
     @Override
     public DestinationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_destination_list_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ui_destination_list_items, parent, false);
         return new DestinationViewHolder(view);
     }
 

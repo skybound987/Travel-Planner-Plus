@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/destination_save"
+        android:title="@string/menu_destination_save"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/destination_delete"
+        android:title="@string/menu_destination_delete"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/destination_alert_start"
+        android:title="@string/menu_destination_alert_start"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/destination_alert_end"
+        android:title="@string/menu_destination_alert_end"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/destination_share"
+        android:title="@string/menu_destination_share"
+        app:showAsAction="never" />
+</menu>
