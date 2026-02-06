@@ -11,7 +11,7 @@ import com.example.travelplannerplus.dao.DestinationInterface;
 import com.example.travelplannerplus.entities.Destination;
 import com.example.travelplannerplus.entities.DestinationActivity;
 
-@Database(entities = {Destination.class, DestinationActivity.class}, version = 0, exportSchema = false)
+@Database(entities = {Destination.class, DestinationActivity.class}, version = 1, exportSchema = false)
 public abstract class DestinationDatabase extends RoomDatabase {
     public abstract DestinationInterface destinationInterface();
     public abstract DestinationActivityInterface destinationActivityInterface();

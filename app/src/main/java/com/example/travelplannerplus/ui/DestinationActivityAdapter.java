@@ -16,13 +16,13 @@ import java.util.List;
 
 public class DestinationActivityAdapter extends RecyclerView.Adapter<DestinationActivityAdapter.DestinationActivityViewHolder> {
 
-    private final OnDestinationActivityClickListener onDestinationActivityClickListener;
+    private final OnActivityClickListener onActivityClickListener;
     private List<DestinationActivity> destinationActivity = new ArrayList<>();
-    public interface OnDestinationActivityClickListener {
-        void onDestinationActivityClick(DestinationActivity destinationActivity);
+    public interface OnActivityClickListener {
+        void onActivityClick(DestinationActivity destinationActivity);
     }
-    public DestinationActivityAdapter(DestinationActivityAdapter.OnDestinationActivityClickListener listener) {
-        this.onDestinationActivityClickListener = listener;
+    public DestinationActivityAdapter(OnActivityClickListener listener) {
+        this.onActivityClickListener = listener;
     }
     public void setDestinationActivity(List<DestinationActivity> destinationActivity) {
         this.destinationActivity = destinationActivity;
@@ -38,9 +38,9 @@ public class DestinationActivityAdapter extends RecyclerView.Adapter<Destination
 
     @Override
     public void onBindViewHolder(@NonNull DestinationActivityViewHolder holder, int position) {
-        DestinationActivity destinationActivity = this.destinationActivity.get(position);
-        holder.title.setText(destinationActivity.getDestinationActivityTitle());
-        holder.itemView.setOnClickListener(v -> OnDestinationActivityClickListener.onDestinationActivityClick(destinationActivity));
+        DestinationActivity activity = destinationActivity.get(position);
+        holder.title.setText(activity.getDestinationActivityTitle());
+        holder.itemView.setOnClickListener(v -> onActivityClickListener.onActivityClick(activity));
     }
 
     @Override
@@ -53,8 +53,7 @@ public class DestinationActivityAdapter extends RecyclerView.Adapter<Destination
 
         public DestinationActivityViewHolder(@NonNull View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.destinationActivityTitleText);
+            title = itemView.findViewById(R.id.activityTitleText);
         }
     }
-}
 }

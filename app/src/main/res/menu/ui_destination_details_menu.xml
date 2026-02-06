@@ -5,7 +5,7 @@
     <item
         android:id="@+id/destination_save"
         android:title="@string/menu_destination_save"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/destination_delete"
         android:title="@string/menu_destination_delete"
@@ -21,5 +21,9 @@
     <item
         android:id="@+id/destination_share"
         android:title="@string/menu_destination_share"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/activity_add"
+        android:title="@string/menu_destination_activity_add"
         app:showAsAction="never" />
 </menu>

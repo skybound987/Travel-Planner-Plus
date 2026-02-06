@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/activity_save"
+        android:title="@string/menu_activity_save"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/activity_delete"
+        android:title="@string/menu_activity_delete"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/activity_alert"
+        android:title="@string/menu_activity_alert"
+        app:showAsAction="never" />
+</menu>

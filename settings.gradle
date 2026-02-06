@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Travel Planner Plus"
 include ':app'
-include ':app'

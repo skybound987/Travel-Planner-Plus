@@ -62,7 +62,7 @@ public class DestinationDetails extends AppCompatActivity {
         editDestinationStartDate = findViewById(R.id.editDestinationStartDate);
         editDestinationEndDate = findViewById(R.id.editDestinationEndDate);
         RecyclerView destinationActivityRecyclerView = findViewById(R.id.activityRecyclerView);
-        FloatingActionButton activityFAB = findViewById(R.id.activityFAB);
+        // FloatingActionButton activityFAB = findViewById(R.id.activityFAB);
 
         destinationActivityAdapter = new DestinationActivityAdapter(destinationActivity -> {
             Intent intent = new Intent(DestinationDetails.this, DestinationActivityDetails.class);
@@ -74,7 +74,7 @@ public class DestinationDetails extends AppCompatActivity {
         destinationActivityRecyclerView.setAdapter(destinationActivityAdapter);
         destinationActivityRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        activityFAB.setOnClickListener(v -> {
+        /* activityFAB.setOnClickListener(v -> {
             if (destinationId == -1) {
                 Toast.makeText(this, "You must save a Destination before adding an Activity!", Toast.LENGTH_LONG).show();
                 return;
@@ -83,7 +83,7 @@ public class DestinationDetails extends AppCompatActivity {
             intent.putExtra(DestinationActivityDetails.DESTINATION_ID, destinationId);
             intent.putExtra(DestinationActivityDetails.ACTIVITY_ID, -1);
             startActivity(intent);
-        });
+        }); */
 
         if (destinationId != -1) {  // -1 is always a new Destination
 
@@ -158,6 +158,17 @@ public class DestinationDetails extends AppCompatActivity {
             }
             shareDestination();
             return true;
+        }
+
+        if (item.getItemId() == R.id.activity_add) {
+            if (destinationId == -1) {
+                Toast.makeText(this, "You must save a Destination before adding an Activity!", Toast.LENGTH_LONG).show();
+                return true;
+            }
+            Intent intent = new Intent(DestinationDetails.this, DestinationActivityDetails.class);
+            intent.putExtra(DestinationActivityDetails.DESTINATION_ID, destinationId);
+            intent.putExtra(DestinationActivityDetails.ACTIVITY_ID, -1);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Travel Planner Plus</string>
     <string name="app_start">Begin</string>
+
     <string name="activity_fab_description">Add a New Activity</string>
     <string name="activity_list_header">Saved Activities</string>
     <string name="activity_list_add">Add a New Activity</string>
+    <string name="activity_title_header">Activity</string>
+    <string name="activity_title_hint">Enter a New Activity…</string>
+    <string name="activity_date_header">Start Date</string>
+    <string name="activity_date_hint">Enter a Start Date…</string>
+    <string name="activity_details_header">Activity Details</string>
+
     <string name="destination_list_add">Add a New Destination</string>
     <string name="destination_fab_description">Add a New Destination</string>
     <string name="destination_start_date_hint">Enter a Start Date…</string>
@@ -13,10 +20,20 @@
     <string name="destination_lodging_hint">Enter a Lodging Title…</string>
     <string name="destination_lodging_header">Lodging</string>
     <string name="destination_title_hint">Enter a Destination Title…</string>
+    <string name="destination_title_header">Destination</string>
+    <string name="destination_list_header">Destination List</string>
+    <string name="destination_details_header">Destination Details</string>
+
     <string name="menu_destination_save">Save Destination</string>
     <string name="menu_destination_delete">Delete Destination</string>
     <string name="menu_destination_alert_start">Start Date Alert</string>
     <string name="menu_destination_alert_end">End Date Alert</string>
     <string name="menu_destination_share">Share This Destination…</string>
+    <string name="menu_destination_activity_add">Add a New Activity…</string>
+    <string name="menu_activity_save">Save Activity</string>
+    <string name="menu_activity_delete">Delete Activity</string>
+    <string name="menu_activity_alert">Start Date Alert</string>
+
+
 
 </resources>

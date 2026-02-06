@@ -5,7 +5,8 @@
 #### The application consists of an intuitive, light-weight planner for both business and recreational needs, and can be used to organize travel plans by associating multiple activities with each travel destination.
 
 <hr>
-●  code including inheritance, polymorphism, and encapsulation
+
+●  ~~code including inheritance, polymorphism, and encapsulation~~
 
 ●  search functionality with multiple row results and displays
 
