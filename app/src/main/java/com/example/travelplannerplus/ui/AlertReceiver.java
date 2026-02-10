@@ -4,6 +4,7 @@ package com.example.travelplannerplus.ui;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,11 +43,22 @@ public class AlertReceiver extends BroadcastReceiver {
 
         Toast.makeText(context, alertMessage, Toast.LENGTH_LONG).show();  //  Duplicates alert message as a toast on the same screen
 
+        Intent openAppIntent = new Intent(context, MainActivity.class);
+        openAppIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context,
+                0,
+                openAppIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
         Notification n = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(notificationTitle)
                 .setContentText(alertMessage)
                 .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
                 .build();
 
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

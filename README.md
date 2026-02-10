@@ -16,7 +16,7 @@
 
 ●  ~~validation functionality~~
 
-●  industry-appropriate security features
+●  ~~industry-appropriate security features~~
 
 ●  ~~design elements that make the application scalable~~
 
