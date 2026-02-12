@@ -2,6 +2,8 @@ package com.example.travelplannerplus.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,9 +54,39 @@ public class DestinationList extends AppCompatActivity {
         loadDestinations();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ui_destination_list_menu, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search);
+        androidx.appcompat.widget.SearchView searchView =
+                (androidx.appcompat.widget.SearchView) searchItem.getActionView();
+
+        assert searchView != null;
+        searchView.setQueryHint("Search...");
+
+        searchView.setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String searchQuery) {
+                destinationAdapter.searchFilter(searchQuery);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                destinationAdapter.searchFilter(newText);
+                return true;
+            }
+        });
+        return true;
+    }
+
     private void loadDestinations() {
-        List<Destination> destinations = destinationRepository.getAllDestinations();
-        destinationAdapter.setDestinations(destinations);
+        List<Destination> loadedDestinations = destinationRepository.getAllDestinations();
+        if (loadedDestinations == null) {
+            loadedDestinations = new java.util.ArrayList<>();
+        }
+        destinationAdapter.setDestinations(loadedDestinations);
     }
 
     @Override

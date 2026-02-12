@@ -30,9 +30,11 @@
     <string name="menu_destination_alert_end">End Date Alert</string>
     <string name="menu_destination_share">Share This Destination…</string>
     <string name="menu_destination_activity_add">Add a New Activity…</string>
+    <string name="menu_destination_list_search">Search</string>
     <string name="menu_activity_save">Save Activity</string>
     <string name="menu_activity_delete">Delete Activity</string>
     <string name="menu_activity_alert">Start Date Alert</string>
+
 
 
 

@@ -22,7 +22,6 @@ import com.example.travelplannerplus.R;
 import com.example.travelplannerplus.entities.Destination;
 import com.example.travelplannerplus.entities.DestinationActivity;
 import com.example.travelplannerplus.repository.DestinationRepository;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -62,7 +61,6 @@ public class DestinationDetails extends AppCompatActivity {
         editDestinationStartDate = findViewById(R.id.editDestinationStartDate);
         editDestinationEndDate = findViewById(R.id.editDestinationEndDate);
         RecyclerView destinationActivityRecyclerView = findViewById(R.id.activityRecyclerView);
-        // FloatingActionButton activityFAB = findViewById(R.id.activityFAB);
 
         destinationActivityAdapter = new DestinationActivityAdapter(destinationActivity -> {
             Intent intent = new Intent(DestinationDetails.this, DestinationActivityDetails.class);
@@ -73,17 +71,6 @@ public class DestinationDetails extends AppCompatActivity {
 
         destinationActivityRecyclerView.setAdapter(destinationActivityAdapter);
         destinationActivityRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        /* activityFAB.setOnClickListener(v -> {
-            if (destinationId == -1) {
-                Toast.makeText(this, "You must save a Destination before adding an Activity!", Toast.LENGTH_LONG).show();
-                return;
-            }
-            Intent intent = new Intent(DestinationDetails.this, DestinationActivityDetails.class);
-            intent.putExtra(DestinationActivityDetails.DESTINATION_ID, destinationId);
-            intent.putExtra(DestinationActivityDetails.ACTIVITY_ID, -1);
-            startActivity(intent);
-        }); */
 
         if (destinationId != -1) {  // -1 is always a new Destination
 
@@ -262,7 +249,7 @@ public class DestinationDetails extends AppCompatActivity {
         } else {
             alertTypeCode = 2;
         }
-        int requestCode = destinationId * 10 + alertTypeCode;  //  Multiply creates unique code
+        int requestCode = destinationId * 10 + alertTypeCode;  //  Creates unique code
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 

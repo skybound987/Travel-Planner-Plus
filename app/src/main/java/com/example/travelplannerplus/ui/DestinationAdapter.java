@@ -17,7 +17,8 @@ import java.util.List;
 public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.DestinationViewHolder> {
 
     private final OnDestinationClickListener onDestinationClickListener;
-    private List<Destination> destinations = new ArrayList<>();
+    private List<Destination> destinationList = new ArrayList<>();
+    private List<Destination> masterDestinationList = new ArrayList<>();
     public interface OnDestinationClickListener {
         void onDestinationClick(Destination destination);
     }
@@ -26,7 +27,38 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
     }
 
     public void setDestinations(List<Destination> destinations) {
-        this.destinations = destinations;
+        if (destinations == null) {
+            destinationList = new ArrayList<>();
+            masterDestinationList = new ArrayList<>();
+        } else {
+            destinationList = new ArrayList<>(destinations);
+            masterDestinationList = new ArrayList<>(destinations);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void searchFilter(String searchQuery) {
+        if (searchQuery == null) {
+            searchQuery = "";
+        }
+        searchQuery = searchQuery.trim().toLowerCase();
+
+        if (searchQuery.isEmpty()) {
+            destinationList = new ArrayList<>(masterDestinationList);
+        } else {
+            List<Destination> filteredResult = new ArrayList<>();
+            for (Destination d : masterDestinationList) {
+                String title = d.getDestinationTitle();
+                String lodging = d.getDestinationLodging();
+
+                if (title != null && title.toLowerCase().contains(searchQuery)) {
+                    filteredResult.add(d);
+                } else if (lodging != null && lodging.toLowerCase().contains(searchQuery)) {
+                    filteredResult.add(d);
+                }
+            }
+            destinationList = filteredResult;
+        }
         notifyDataSetChanged();
     }
 
@@ -39,14 +71,17 @@ public class DestinationAdapter extends RecyclerView.Adapter<DestinationAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull DestinationViewHolder holder, int position) {
-        Destination destination = destinations.get(position);
+        Destination destination = destinationList.get(position);
         holder.title.setText(destination.getDestinationTitle());
         holder.itemView.setOnClickListener(v -> onDestinationClickListener.onDestinationClick(destination));
     }
 
     @Override
     public int getItemCount() {
-        return destinations.size();
+        if (destinationList == null) {
+            return 0;
+        }
+        return destinationList.size();
     }
 
     static class DestinationViewHolder extends RecyclerView.ViewHolder {
